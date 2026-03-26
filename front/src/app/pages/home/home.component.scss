@@ -1,0 +1,40 @@
+.center {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+/*.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   // centre horizontalement
+  margin-top: 87px;      // marge au dessus du logo
+}*/
+
+.center img {
+  margin-bottom: 44px;   // marge sous le logo
+  max-width: 100%;       // responsive
+}
+
+.home-buttons {
+  display: flex;
+  gap: 20px;             // espace entre boutons sur desktop
+  margin-bottom: 175px;  // marge sous les boutons
+}
+
+// ---------- MEDIA QUERY MOBILE ----------
+@media (max-width: 360px) {
+  .home-buttons {
+    flex-direction: column; // boutons empilés
+    gap: 12px;              // espace réduit entre boutons
+    margin-bottom: 4vh;     // marge sous les boutons mobile
+  }
+
+  .center img {
+    width: 80%;             // logo réduit pour mobile
+    margin-bottom: 30px;    // marge entre logo et boutons
+  }
+}
