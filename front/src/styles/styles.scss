@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.center {
+    display: flex;
+    flex-direction: column; // empile l'image et les boutons verticalement
+    align-items: center; // centre horizontalement
+    margin-top: 87px; // marge au dessus de l'image
+}
+
+.center img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 44px; // marge sous l'image
+}
+
+.home-buttons {
+    display: flex;
+    gap: 20px; // espace entre les boutons
+    margin-bottom: 175px; // marge sous les boutons
+}
