@@ -1,38 +1,56 @@
 package com.openclassrooms.mddapi.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "topics")
 public class Topic {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "topic_id")
-	private Long id;
-	
-	@Column(nullable = false)
-	private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	public Long getId() {
-		return id;
-	}
+    @Column(nullable = false)
+    private String name;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @Column(length = 500)
+    private String description;
 
-	public String getName() {
-		return name;
-	}
+    // Relation avec les posts
+    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Post> posts = new ArrayList<>();
 
-	public void setName(String name) {
-		this.name = name;
-	}
-	
+    // Relation avec les abonnements
+    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Subscription> subscriptions = new ArrayList<>();
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public List<Subscription> getSubscriptions() {
+        return subscriptions;
+    }
 }
