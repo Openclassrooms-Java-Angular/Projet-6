@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+
+<section class="post-detail" *ngIf="post">
+    <div class="back-arrow" title="Retour"><a routerLink="/feed">&larr;</a></div>
+    <div class="page-content">
+        <h1 class="title">{{ post.title }}</h1>
+
+        <div class="meta">
+            <span>Date : {{ post.getFormattedDate() }}</span>
+            <span>Auteur : {{ post.author }}</span>
+            <span>Thème : {{ post.topicTitle }}</span>
+        </div>
+
+        <article class="content">
+            {{ post.content }}
+        </article>
+
+        <hr>
+
+        <section class="comments">
+            <h2>Commentaires</h2>
+
+            <div class="comment-box">
+                <div class="comment" *ngFor="let comment of comments">
+                    <div class="comment-meta">
+                        <span>{{ comment.authorUsername }}</span><br>
+                    </div>
+                    <div class="content">{{ comment.content }}</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="comment-form">
+            <form [formGroup]="commentForm" (ngSubmit)="addComment()">
+                <div class="comment-form-row">
+                    <textarea formControlName="content" rows="5" placeholder="Écrivez ici votre commentaire"></textarea>
+                    <button type="submit"><img src="/assets/send.png" alt="Publier"></button>
+                </div>
+            </form>
+        </section>
+    </div>
+</section>

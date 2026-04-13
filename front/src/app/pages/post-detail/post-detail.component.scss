@@ -1,0 +1,104 @@
+.page-content {
+    margin-left: 84px;
+
+    .comment-form {
+        margin-top: 43px;
+        margin-left: 44px;
+    }
+}
+
+.post-detail {
+    .meta {
+        display: flex;
+        justify-content: left;
+        gap: 50px;
+        margin-bottom: 30px;
+        font-weight: 400;
+        font-size: 20px;
+        font-style: normal;
+        line-height: 100%;
+    }
+
+    .content {
+        font-weight: 400;
+        font-size: 20px;
+        font-style: normal;
+        line-height: 100%;
+    }
+
+    .comment-box {
+        margin-left: 44px;
+        margin-right: 127px;
+    }
+}
+
+HR {
+    margin: 30px 9px;
+}
+
+.comment {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+    margin-right: 9px;
+
+    .comment-meta {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .content {
+        background-color: #EEEEEE;
+        border-radius: 16px;
+        padding: 20px;
+        margin-right: 0;
+    }
+}
+
+
+textarea {
+    height: 120px;
+    border-radius: 16px;
+}
+
+.comment-form {
+    margin-top: 43px;
+
+    .comment-form-row {
+        display: flex;
+        align-items: center;
+        gap: 31px; // marge gauche du bouton
+
+        BUTTON {
+            margin-right: 53px;
+        }
+
+        IMG {
+            width: 43px;
+            height: 43px;
+        }
+    }
+
+    textarea {
+        flex: 1; // prend tout l’espace disponible
+        height: 120px;
+        resize: vertical;
+    }
+
+    .send-btn {
+        padding: 0;
+        border: none;
+        background: none;
+        cursor: pointer;
+
+        // → marge droite du bouton : 53px
+        margin-right: 53px;
+
+        img {
+            width: 43px;
+            height: 43px;
+            display: block;
+        }
+    }
+}
