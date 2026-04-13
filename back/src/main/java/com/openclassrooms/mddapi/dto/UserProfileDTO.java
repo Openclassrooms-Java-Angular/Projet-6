@@ -5,9 +5,9 @@ import java.util.List;
 public class UserProfileDTO {
     private String email;
     private String username;
-    private List<String> subscriptions; // titres des thèmes abonnés
+    private List<TopicDTO> subscriptions; // titres des thèmes abonnés
 
-    public UserProfileDTO(String email, String username, List<String> subscriptions) {
+    public UserProfileDTO(String email, String username, List<TopicDTO> subscriptions) {
         this.email = email;
         this.username = username;
         this.subscriptions = subscriptions;
@@ -29,11 +29,11 @@ public class UserProfileDTO {
         this.username = username;
     }
 
-    public List<String> getSubscriptions() {
+    public List<TopicDTO> getSubscriptions() {
         return subscriptions;
     }
 
-    public void setSubscriptions(List<String> subscriptions) {
+    public void setSubscriptions(List<TopicDTO>subscriptions) {
         this.subscriptions = subscriptions;
     }
 }

@@ -21,8 +21,6 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    private String test;
-
     // Relation avec les posts (optionnelle à ce stade, mais utile)
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Post> posts = new ArrayList<>();
@@ -69,14 +67,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getTest() {
-        return test;
-    }
-
-    public void setTest(String test) {
-        this.test = test;
     }
 
     public List<Post> getPosts() {
