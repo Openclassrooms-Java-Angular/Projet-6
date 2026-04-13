@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
   selector: 'app-register',
   standalone: true,
   templateUrl: './register.component.html',
+  styleUrl: './register.component.scss',
   imports: [
     ReactiveFormsModule,
     MatInputModule,

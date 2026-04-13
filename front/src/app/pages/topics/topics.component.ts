@@ -4,12 +4,14 @@ import { MatCardModule } from "@angular/material/card";
 import { CommonModule } from "@angular/common";
 
 @Component({
-    selector: 'app-topic',
+    selector: 'app-topics',
     standalone: true,
     templateUrl: './topics.component.html',
-    styleUrls: ['./topics.component.css'],
+    styleUrl: './topics.component.scss',
     imports: [
-        CommonModule,MatCardModule],
+        CommonModule,
+        MatCardModule
+    ],
 })
 export class TopicsComponent implements OnInit {
 

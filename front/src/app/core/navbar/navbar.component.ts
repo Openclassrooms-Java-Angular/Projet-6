@@ -4,7 +4,11 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, RouterLinkActive],
+  standalone: true,
+  imports: [
+    RouterLink,
+    RouterLinkActive
+  ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
@@ -15,8 +19,7 @@ export class NavbarComponent {
     this.authService.logout();
   }
 
-    isProfilePage(): boolean {
-      //IsActiveMatchOptions = { paths: 'exact', queryParams: 'ignored', fragment: 'ignored', matrixParams: 'ignored' };
+  isProfilePage(): boolean {
     return this.router.isActive('/profile', true);
   }
 }

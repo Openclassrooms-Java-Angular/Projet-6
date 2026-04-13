@@ -12,12 +12,17 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NavbarComponent,
-    MatFormFieldModule, MatInputModule, MatButtonModule,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    NavbarComponent,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
     MatCardModule
   ],
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  styleUrl: './profile.component.scss'
 })
 export class ProfileComponent implements OnInit {
 

@@ -8,9 +8,14 @@ import { PostService } from 'src/app/services/post.service';
 @Component({
   selector: 'app-post-detail',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NavbarComponent, RouterLink],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    NavbarComponent,
+    RouterLink
+  ],
   templateUrl: './post-detail.component.html',
-  styleUrls: ['./post-detail.component.scss']
+  styleUrl: './post-detail.component.scss'
 })
 export class PostDetailComponent implements OnInit {
   post: any;

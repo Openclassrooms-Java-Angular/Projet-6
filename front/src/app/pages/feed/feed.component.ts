@@ -3,15 +3,20 @@ import { CommonModule } from '@angular/common';
 import { Post } from 'src/app/models/Post.model';
 import { PostService } from 'src/app/services/post.service';
 import { NavbarComponent } from '../../core/navbar/navbar.component';
-import { Router, RouterLink, RouterModule } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { PostComponent } from 'src/app/core/post/post.component';
 
 @Component({
   selector: 'app-feed',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, PostComponent, RouterLink, RouterModule],
+  imports: [
+    CommonModule,
+    NavbarComponent,
+    PostComponent,
+    RouterLink
+  ],
   templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.scss']
+  styleUrl: './feed.component.scss'
 })
 export class FeedComponent implements OnInit {
   posts: Post[] = [];

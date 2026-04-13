@@ -17,7 +17,7 @@ import { Post } from 'src/app/models/Post.model';
   selector: 'app-create-post',
   standalone: true,
   templateUrl: './create-post.component.html',
-  styleUrls: ['./create-post.component.scss'],
+  styleUrl: './create-post.component.scss',
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -57,8 +57,6 @@ export class CreatePostComponent implements OnInit {
       console.log('Form values:', this.createPostForm.value);
       this.postService.create(this.createPostForm.value).subscribe({
         next: (newPost: Post) => {
-          console.log('Post créé avec succès :', newPost);
-          // 🔥 redirection vers le post
           this.router.navigate(['/posts', newPost.id]);
         },
         error: err => console.error(err)
