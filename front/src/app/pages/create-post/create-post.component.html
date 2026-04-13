@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <h1 class="title">Créer un nouvel article</h1>
+
+    <form [formGroup]="createPostForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="fill" class="input">
+            <mat-label>Sélectionner un thème</mat-label>
+            <mat-select formControlName="topic">
+                <mat-option *ngFor="let t of topics" [value]="t.id">{{ t.title }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="input">
+            <mat-label>Titre de l'article</mat-label>
+            <input matInput formControlName="title">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Contenu</mat-label>
+            <textarea matInput formControlName="content" rows="5" placeholder="Contenu de l'article"></textarea>
+        </mat-form-field>
+
+        <div class="divbutton">
+            <button mat-raised-button color="primary" type="submit" class="button2">Créer</button>
+        </div>
+    </form>
+</div>
