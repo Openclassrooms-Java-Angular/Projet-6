@@ -1,0 +1,8 @@
+<div class="post-card" (click)="openPost()">
+  <h3 class="title">{{ post.title }}</h3>
+  <div class="meta">
+    <span class="date">Date : <time [attr.datetime]="post.created_at">{{ post.getFormattedDate() }}</time></span>
+    <span class="author">Auteur : {{ post.author }}</span>
+  </div>
+  <p class="content">{{ truncateText(post.content) }}</p>
+</div>

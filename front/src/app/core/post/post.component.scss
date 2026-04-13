@@ -1,0 +1,31 @@
+.post-card {
+  background-color: #F5F5F5;
+  padding: 12px 20px 14px 20px;
+  border-radius: 8px;
+
+  .title {
+    font-weight: 700;
+    font-style: bold;
+    font-size: 16px;
+    line-height: 100%;
+    margin-bottom: 9px;
+  }
+
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .content {
+    margin-top: 8px;
+    line-height: 100%;
+ 
+   display: -webkit-box;
+  -webkit-line-clamp: 5; /* tronquer après 5 lignes */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ }
+}
