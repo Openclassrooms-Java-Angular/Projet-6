@@ -28,22 +28,8 @@ public class UserService {
         return userRepository.findById(id).orElse(null);
     }
 
-    public User register(String name, String email, String rawPassword) {
-        if (userRepository.existsByEmail(email)) {
-            // on ne lance pas d'exception pour ne pas exposer de message
-            return null;
-        }
-
-        User user = new User();
-        user.setUsername(name);
-        user.setEmail(email);
-        user.setPassword(passwordEncoder.encode(rawPassword));
-
-        return userRepository.save(user);
-    }
-
     public String generateToken(User user) {
-        return JwtUtil.generateToken(user.getEmail(), "USER");
+        return JwtUtil.generateToken(user.getEmail(), "user");
     }
 
     public Optional<User> findById(Long id) {

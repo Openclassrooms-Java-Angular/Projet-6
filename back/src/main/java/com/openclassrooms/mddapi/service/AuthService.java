@@ -18,7 +18,7 @@ public class AuthService {
         this.userRepository = userRepository;
     }
 
-    public void register(UserDTO request) {
+    public User register(UserDTO request) {
 
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new RuntimeException("Email déjà utilisé");
@@ -33,8 +33,9 @@ public class AuthService {
                 request.getEmail(),
                 passwordEncoder.encode(request.getPassword())
         );
-
         userRepository.save(user);
+
+        return user;
     }
 
     public User login(LoginRequest request) {
