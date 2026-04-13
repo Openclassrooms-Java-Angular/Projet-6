@@ -1,0 +1,33 @@
+.feed-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+}
+
+/*.btn-create {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}*/
+
+.sort-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  font-style: bold;
+  font-size: 16px;
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  //gap: 15px;
+  margin: 0 20px 20px 20px;
+}
