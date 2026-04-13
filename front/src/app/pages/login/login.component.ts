@@ -4,7 +4,8 @@ import { AuthService, LoginRequest } from '../../services/auth.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { NavbarComponent } from 'src/app/core/navbar/navbar.component';
 
 @Component({
   selector: 'app-login',
@@ -12,10 +13,12 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
   imports: [
+    NavbarComponent,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    RouterLink,
   ]
 })
 export class LoginComponent {
