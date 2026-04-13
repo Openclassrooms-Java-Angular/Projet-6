@@ -1,10 +1,12 @@
 package com.openclassrooms.mddapi.controller;
 
+import com.openclassrooms.mddapi.dto.TopicDTO;
 import com.openclassrooms.mddapi.dto.UserDTO;
 import com.openclassrooms.mddapi.dto.UserProfileDTO;
 import com.openclassrooms.mddapi.model.Topic;
 import com.openclassrooms.mddapi.model.User;
 import com.openclassrooms.mddapi.service.SubscriptionService;
+import com.openclassrooms.mddapi.service.TopicService;
 import com.openclassrooms.mddapi.service.UserService;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -17,10 +19,12 @@ public class UserController {
 
     private final UserService userService;
     private final SubscriptionService subscriptionService;
+    private final TopicService topicService;
 
-    public UserController(UserService userService, SubscriptionService subscriptionService) {
+    public UserController(UserService userService, SubscriptionService subscriptionService, TopicService topicService) {
         this.userService = userService;
         this.subscriptionService = subscriptionService;
+        this.topicService = topicService;
     }
 
     @GetMapping("/me")
@@ -29,12 +33,13 @@ public class UserController {
         User user = userService.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("Utilisateur introuvable"));
 
-        List<String> subscriptions = subscriptionService.getUserSubscriptions(user.getId())
-                .stream()
-                .map(Topic::getName)
-                .toList();
+        List<TopicDTO> subscriptions = subscriptionService.getUserSubscriptions(user.getId());
 
-        return new UserProfileDTO(user.getEmail(), user.getUsername(), subscriptions);
+        return new UserProfileDTO(
+                user.getEmail(),
+                user.getUsername(),
+                subscriptions
+        );
     }
 
     @PutMapping("/me")
@@ -54,10 +59,7 @@ public class UserController {
 
         userService.save(user);
 
-        List<String> subscriptions = subscriptionService.getUserSubscriptions(user.getId())
-                .stream()
-                .map(Topic::getName)
-                .toList();
+        List<TopicDTO> subscriptions = subscriptionService.getUserSubscriptions(user.getId());
 
         return new UserProfileDTO(user.getEmail(), user.getUsername(), subscriptions);
     }

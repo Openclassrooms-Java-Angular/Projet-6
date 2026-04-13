@@ -1,5 +1,6 @@
 package com.openclassrooms.mddapi.service;
 
+import com.openclassrooms.mddapi.dto.TopicDTO;
 import com.openclassrooms.mddapi.model.Subscription;
 import com.openclassrooms.mddapi.model.Topic;
 import com.openclassrooms.mddapi.repository.SubscriptionRepository;
@@ -48,10 +49,16 @@ public class SubscriptionService {
         subscriptionRepository.delete(subscription);
     }
 
-    public List<Topic> getUserSubscriptions(Long userId) {
-        return subscriptionRepository.findAllByUserId(userId)
+    public List<TopicDTO> getUserSubscriptions(Long userId) {
+        return subscriptionRepository.findAllByUser_Id(userId)
                 .stream()
                 .map(Subscription::getTopic)
+                .map(topic -> new TopicDTO(
+                        topic.getId(),
+                        topic.getName(),
+                        topic.getDescription(),
+                        true
+                ))
                 .toList();
     }
 }

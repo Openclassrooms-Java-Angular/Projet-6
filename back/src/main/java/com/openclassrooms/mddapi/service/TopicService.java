@@ -25,7 +25,7 @@ public class TopicService implements ITopicService {
                 .stream()
                 .map(p -> new TopicDTO(
                         p.getId(),
-                        p.getTitle(),
+                        p.getName(),
                         p.getDescription(),
                         p.getSubscribed() == 1
                 ))

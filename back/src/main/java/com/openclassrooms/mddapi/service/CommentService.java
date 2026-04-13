@@ -28,7 +28,7 @@ public class CommentService {
     }
 
     public List<CommentDTO> getCommentsForPost(Long postId) {
-        return commentRepository.findByPostId(postId).stream()
+        return commentRepository.findByPostIdOrderByCreatedAtAsc(postId).stream()
                 .map(c -> new CommentDTO(
                         c.getId(),
                         c.getContent(),
