@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
   imports: [
+    CommonModule,
     RouterLink,
     RouterLinkActive
   ],
@@ -24,5 +26,9 @@ export class NavbarComponent {
 
   isProfilePage(): boolean {
     return this.router.isActive('/profile', true);
+  }
+
+  isLoggedIn(): boolean {
+    return this.authService.isLoggedIn();
   }
 }
