@@ -25,7 +25,7 @@ export interface AuthResponse {
 export class AuthService {
   private apiUrl = 'http://localhost:8080/api/auth';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
   register(request: RegisterRequest): Observable<any> {
     return this.http.post(`${this.apiUrl}/register`, request);
@@ -38,5 +38,9 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
+  }
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
   }
 }

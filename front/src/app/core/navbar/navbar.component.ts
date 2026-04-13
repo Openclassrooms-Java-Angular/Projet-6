@@ -13,7 +13,10 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
-  constructor(private authService: AuthService, public router: Router) { }
+  constructor(
+    private authService: AuthService,
+    public router: Router
+  ) { }
 
   logout() {
     this.authService.logout();
