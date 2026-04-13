@@ -15,7 +15,7 @@ public interface TopicRepository extends JpaRepository<Topic, Long>
     @Query(value = """
         SELECT
             t.id,
-            t.title,
+            t.name,
             t.description,
             (s.user_id IS NOT NULL) AS subscribed
         FROM topics t
