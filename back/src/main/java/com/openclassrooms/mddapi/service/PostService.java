@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Service
-public class PostService implements IPostService {
+public class PostService {
 
     private final PostRepository postRepository;
     private final CommentService commentService;
@@ -30,6 +30,7 @@ public class PostService implements IPostService {
 
     // Fil d'actualité simple
     public List<FeedDTO> getFeed(Long userId, String sort) {
+        // récupère tous les articles liés aux thèmes auxquels l'utilisateur est abonné, triés par date de création croissante ou décroissante
         Sort result = Objects.equals(sort, "asc") ? Sort.by("createdAt").ascending() : Sort.by("createdAt").descending();
         List<Post> posts = postRepository.findDistinctByTopicSubscriptionsUserId(userId, result);
 
@@ -67,7 +68,7 @@ public class PostService implements IPostService {
         );
     }
 
-    // Lire un article avec commentaires
+    // Lire un article avec ses commentaires
     public PostDTO getPost(Long postId) {
         Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new RuntimeException("Post introuvable"));

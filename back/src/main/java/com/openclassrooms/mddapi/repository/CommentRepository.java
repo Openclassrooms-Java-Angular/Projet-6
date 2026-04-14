@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Long> {
     List<Comment> findByPostId(Long postId);
-    List<Comment> findByPostIdOrderByCreatedAtAsc(Long postId);
+    List<Comment> findByPostIdOrderByCreatedAtAsc(Long postId); // renvoie tous les commentaires d'un article, triés par date de création croissante
 }

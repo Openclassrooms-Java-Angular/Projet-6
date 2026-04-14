@@ -15,5 +15,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     boolean existsByUsername(String username);
 
+    // renvoie un utilisateur recherché par email ou username (insensible à la casse)
     Optional<User> findByEmailIgnoreCaseOrUsernameIgnoreCase(String email, String username);
 }

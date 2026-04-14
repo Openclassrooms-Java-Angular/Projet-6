@@ -19,6 +19,7 @@ public class SubscriptionController {
         this.userService = userService;
     }
 
+    // S'abonner à un thème
     @PostMapping("/{topicId}/subscribe")
     public void subscribe(@PathVariable Long topicId, Authentication authentication) {
 
@@ -29,6 +30,7 @@ public class SubscriptionController {
         subscriptionService.subscribe(user.getId(), topicId);
     }
 
+    // Se désabonner d'un thème
     @DeleteMapping("/{topicId}/unsubscribe")
     public void unsubscribe(@PathVariable Long topicId, Authentication authentication) {
 
