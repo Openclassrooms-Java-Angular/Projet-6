@@ -64,7 +64,7 @@ public class PostController {
         return postService.getPost(id);
     }
 
-    // Ajouter un commentaire
+    // Ajouter un commentaire à un article
     @PostMapping("/{id}/comments")
     public CommentDTO addComment(@PathVariable Long id,
                                  @RequestBody Map<String, String> body,

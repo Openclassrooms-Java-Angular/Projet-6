@@ -3,10 +3,9 @@ package com.openclassrooms.mddapi.controller;
 import com.openclassrooms.mddapi.dto.TopicDTO;
 import com.openclassrooms.mddapi.dto.UserDTO;
 import com.openclassrooms.mddapi.dto.UserProfileDTO;
-import com.openclassrooms.mddapi.model.Topic;
 import com.openclassrooms.mddapi.model.User;
+import com.openclassrooms.mddapi.service.AuthService;
 import com.openclassrooms.mddapi.service.SubscriptionService;
-import com.openclassrooms.mddapi.service.TopicService;
 import com.openclassrooms.mddapi.service.UserService;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -19,14 +18,19 @@ public class UserController {
 
     private final UserService userService;
     private final SubscriptionService subscriptionService;
-    private final TopicService topicService;
+    private final AuthService authService;
 
-    public UserController(UserService userService, SubscriptionService subscriptionService, TopicService topicService) {
+    public UserController(
+            UserService userService,
+            SubscriptionService subscriptionService,
+            AuthService authService
+    ) {
         this.userService = userService;
         this.subscriptionService = subscriptionService;
-        this.topicService = topicService;
+        this.authService = authService;
     }
 
+    // Afficher la page de profil de l'utilisateur connecté
     @GetMapping("/me")
     public UserProfileDTO getProfile(Authentication authentication) {
         String email = authentication.getName();
@@ -42,6 +46,7 @@ public class UserController {
         );
     }
 
+    // Mettre à jour le profil de l'utilisateur connecté
     @PutMapping("/me")
     public UserProfileDTO updateProfile(@RequestBody UserDTO request,
                                         Authentication authentication) {
@@ -54,7 +59,7 @@ public class UserController {
         user.setUsername(request.getUsername());
 
         if (request.getPassword() != null && !request.getPassword().isBlank()) {
-            user.setPassword(userService.encodePassword(request.getPassword()));
+            user.setPassword(authService.encodePassword(request.getPassword()));
         }
 
         userService.save(user);

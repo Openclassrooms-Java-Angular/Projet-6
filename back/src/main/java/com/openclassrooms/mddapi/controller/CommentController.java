@@ -16,21 +16,9 @@ public class CommentController {
         this.commentService = commentService;
     }
 
+    // liste des commentaires associés à un article
     @GetMapping
     public List<CommentDTO> getComments(@PathVariable Long postId) {
         return commentService.getCommentsForPost(postId);
     }
-
-    /*@PostMapping
-    public CommentDTO addComment(@PathVariable Long postId,
-                                 @RequestBody Map<String, String> body,
-                                 Authentication authentication) {
-
-        String username = authentication.getName();
-        User user = userService.findByUsername(username)
-                .orElseThrow(() -> new RuntimeException("Utilisateur introuvable"));
-
-        String content = body.get("content");
-        return commentService.addComment(postId, user.getId(), content);
-    }*/
 }

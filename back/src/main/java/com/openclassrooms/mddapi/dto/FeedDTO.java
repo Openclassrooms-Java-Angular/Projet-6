@@ -1,7 +1,6 @@
 package com.openclassrooms.mddapi.dto;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class FeedDTO {
     private Long id;
@@ -55,23 +54,11 @@ public class FeedDTO {
         return authorUsername;
     }
 
-    public void setAuthorUsername(String authorUsername) {
-        this.authorUsername = authorUsername;
-    }
-
     public String getTopicTitle() {
         return topicTitle;
     }
 
-    public void setTopicTitle(String topicTitle) {
-        this.topicTitle = topicTitle;
-    }
-
     public LocalDateTime getCreatedAt() {
         return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
     }
 }

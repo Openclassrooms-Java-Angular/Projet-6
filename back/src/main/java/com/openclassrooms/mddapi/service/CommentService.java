@@ -40,7 +40,7 @@ public class CommentService {
 
     public CommentDTO addComment(Long postId, Long userId, String content) {
         Post post = postRepository.findById(postId)
-                .orElseThrow(() -> new RuntimeException("Post introuvable"));
+                .orElseThrow(() -> new RuntimeException("Article introuvable"));
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("Utilisateur introuvable"));
 

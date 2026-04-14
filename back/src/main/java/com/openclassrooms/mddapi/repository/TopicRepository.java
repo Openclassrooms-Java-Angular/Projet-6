@@ -12,6 +12,7 @@ import java.util.List;
 @Repository
 public interface TopicRepository extends JpaRepository<Topic, Long>
 {
+    // renvoie la liste des thèmes avec l'état d'abonnement de l'utilisateur
     @Query(value = """
         SELECT
             t.id,

@@ -24,6 +24,8 @@ public class TopicController {
     public TopicController(TopicService topicService) {
         this.topicService = topicService;
     }
+
+    // Liste des thèmes
     @GetMapping
     public List<TopicDTO> getTopics(Authentication authentication) {
 

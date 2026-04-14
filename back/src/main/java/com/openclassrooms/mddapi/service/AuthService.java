@@ -18,7 +18,15 @@ public class AuthService {
         this.userRepository = userRepository;
     }
 
-    public void register(UserDTO request) {
+    public String encodePassword(String rawPassword) {
+        return passwordEncoder.encode(rawPassword);
+    }
+
+    public boolean checkPassword(String rawPassword, String encodedPassword) {
+        return passwordEncoder.matches(rawPassword, encodedPassword);
+    }
+
+    public User register(UserDTO request) {
 
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new RuntimeException("Email déjà utilisé");
@@ -31,10 +39,11 @@ public class AuthService {
         User user = new User(
                 request.getUsername(),
                 request.getEmail(),
-                passwordEncoder.encode(request.getPassword())
+                this.encodePassword(request.getPassword())
         );
-
         userRepository.save(user);
+
+        return user;
     }
 
     public User login(LoginRequest request) {
@@ -48,7 +57,7 @@ public class AuthService {
                 .findByEmailIgnoreCaseOrUsernameIgnoreCase(request.getLogin(), request.getLogin())
                 .orElseThrow(AuthenticationException::new);
 
-        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+        if (!this.checkPassword(request.getPassword(), user.getPassword())) {
             throw new AuthenticationException();
         }
 

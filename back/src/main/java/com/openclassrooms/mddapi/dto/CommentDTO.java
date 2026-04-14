@@ -3,10 +3,10 @@ package com.openclassrooms.mddapi.dto;
 import java.time.LocalDateTime;
 
 public class CommentDTO {
-    private Long id;
-    private String content;
-    private String authorUsername;
-    private LocalDateTime createdAt;
+    private final Long id;
+    private final String content;
+    private final String authorUsername;
+    private final LocalDateTime createdAt;
 
     public CommentDTO(Long id, String content, String authorUsername, LocalDateTime createdAt) {
         this.id = id;
