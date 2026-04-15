@@ -1,11 +1,40 @@
 <header class="top-bar">
-  <div class="logo"><img src="/assets/logo_p6.png" alt="Logo de Monde de dev"></div>
+  <div class="logo">
+    <img src="/assets/logo_p6.png" alt="Logo de Monde de dev">
+  </div>
+
+  <!-- Bouton hamburger (visible seulement en mobile) -->
+  <div class="hamburger" (click)="toggleMenu()" *ngIf="isLoggedIn()">
+    ☰
+  </div>
+
+  <!-- Menu desktop -->
   <nav class="menu" *ngIf="isLoggedIn()">
     <a class="logout" (click)="logout()">Se déconnecter</a>
     <a routerLink="/feed" routerLinkActive="active-link">Articles</a>
     <a routerLink="/topics" routerLinkActive="active-link">Thèmes</a>
-    <span class="user-icon"><a routerLink="/profile" routerLinkActive="active-link">
-      <img [src]="isProfilePage() ? '/assets/user-active.png' : '/assets/user.png'" alt="Avatar de l'utilisateur"></a>
+
+    <span class="user-icon">
+      <a routerLink="/profile" routerLinkActive="active-link">
+        <img [src]="isProfilePage() ? '/assets/user-active.png' : '/assets/user.png'"
+             alt="Avatar de l'utilisateur">
+      </a>
     </span>
   </nav>
+
+  <!-- Menu mobile overlay -->
+  <div class="mobile-menu" [class.open]="mobileMenuOpen" *ngIf="isLoggedIn()">
+    <div class="mobile-links">
+      <a class="logout" (click)="logout(); closeMenu()">Se déconnecter</a>
+      <a routerLink="/feed" (click)="closeMenu()">Articles</a>
+      <a routerLink="/topics" (click)="closeMenu()">Thèmes</a>
+    </div>
+
+    <div class="mobile-profile">
+      <a routerLink="/profile" (click)="closeMenu()">
+        <img [src]="isProfilePage() ? '/assets/user-active.png' : '/assets/user.png'"
+             alt="Profil">
+      </a>
+    </div>
+  </div>
 </header>

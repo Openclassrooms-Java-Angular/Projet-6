@@ -31,4 +31,14 @@ export class NavbarComponent {
   isLoggedIn(): boolean {
     return this.authService.isLoggedIn();
   }
+
+  mobileMenuOpen = false;
+
+  toggleMenu(): void {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
+
+  closeMenu(): void {
+    this.mobileMenuOpen = false;
+  }
 }

@@ -102,3 +102,83 @@ textarea {
         }
     }
 }
+
+@media (max-width: 400px) {
+
+    .page-content {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .post-detail {
+        .meta {
+            flex-direction: column;
+            gap: 8px;
+            font-size: 16px;
+        }
+
+        .comment-box {
+            margin-left: 0;
+            margin-right: 0;
+            width: 90%;
+        }
+    }
+
+    .post-detail .content {
+        font-size: 16px;
+    }
+
+    .comment {
+        grid-template-columns: 40px 1fr;
+        gap: 10px;
+    }
+
+    /* 🔥 zone commentaire */
+    .comment-form {
+        .comment-form-row {
+            flex-direction: row;
+            /* important : on garde côte à côte */
+            gap: 10px;
+            align-items: flex-end;
+        }
+
+        margin-left: 0;
+    }
+
+    .comment-form textarea {
+        flex: 1;
+        height: 100px;
+    }
+
+    .comment-form button {
+        margin-right: 0;
+        flex-shrink: 0;
+    }
+
+    .comment-form img {
+        width: 36px;
+        height: 36px;
+    }
+
+    /* commentaire en colonne */
+    .comment {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-right: 0;
+    }
+
+    /* auteur au-dessus */
+    .comment-meta {
+        margin: 0;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    /* contenu prend toute la largeur */
+    .comment .content {
+        width: 100%;
+        padding: 14px;
+        font-size: 14px;
+    }
+}

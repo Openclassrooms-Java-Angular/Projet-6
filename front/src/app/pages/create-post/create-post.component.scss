@@ -51,8 +51,34 @@ mat-form-field {
   display: none;
 }
 
-@media (max-width: 300px) {
+@media (max-width: 400px) {
+
+  .container {
+    width: 100%;
+    margin: 0;
+    padding: 0 8px; /* optionnel: petit espace interne */
+    box-sizing: border-box;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
   mat-form-field {
-    width: 250px;
+    width: 100%;
+  }
+
+  .divbutton {
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  .button2 {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .custom-textarea {
+    width: 100%;
   }
 }

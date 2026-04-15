@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Post } from 'src/app/models/Post.model';
 import { PostService } from 'src/app/services/post.service';
 import { NavbarComponent } from '../../core/navbar/navbar.component';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { PostComponent } from 'src/app/core/post/post.component';
 
 @Component({
@@ -12,8 +12,7 @@ import { PostComponent } from 'src/app/core/post/post.component';
   imports: [
     CommonModule,
     NavbarComponent,
-    PostComponent,
-    RouterLink
+    PostComponent
   ],
   templateUrl: './feed.component.html',
   styleUrl: './feed.component.scss'
