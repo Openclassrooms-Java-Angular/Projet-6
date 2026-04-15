@@ -15,8 +15,12 @@
       <input matInput type="password" formControlName="password" required>
     </mat-form-field>
 
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
     <div class="divbutton">
-    <button mat-raised-button color="primary" type="submit" class="button2">Se connecter</button>
+      <button mat-raised-button color="primary" type="submit" class="button2">Se connecter</button>
     </div>
   </form>
 </div>

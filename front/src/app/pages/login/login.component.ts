@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
 import { NavbarComponent } from 'src/app/core/navbar/navbar.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ import { NavbarComponent } from 'src/app/core/navbar/navbar.component';
     MatInputModule,
     MatButtonModule,
     RouterLink,
+    CommonModule
   ]
 })
 export class LoginComponent {
@@ -53,8 +55,7 @@ export class LoginComponent {
       },
       error: (err) => {
         console.error(err);
-        this.errorMessage = err.error?.message || 'Erreur de connexion';
-        alert(this.errorMessage);
+        this.errorMessage = err.error?.error || 'Erreur de connexion';
       },
       complete: () => {
         this.loading = false;

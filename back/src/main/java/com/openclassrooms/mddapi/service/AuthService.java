@@ -29,11 +29,11 @@ public class AuthService {
     public User register(UserDTO request) {
 
         if (userRepository.existsByEmail(request.getEmail())) {
-            throw new RuntimeException("Email déjà utilisé");
+            throw new RuntimeException("Un compte avec cette adresse e-mail existe déjà");
         }
 
         if (userRepository.existsByUsername(request.getUsername())) {
-            throw new RuntimeException("Username déjà utilisé");
+            throw new RuntimeException("Un compte avec ce nom d'utilisateur existe déjà");
         }
 
         User user = new User(

@@ -1,0 +1,68 @@
+.title {
+  height: 44px;
+}
+
+/* Titre et formulaire */
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+
+  h1 {
+    margin-bottom: 19px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    width: 100%;
+    max-width: 360px;
+    padding: 0 16px;
+
+    button {
+      margin-top: 16px;
+    }
+
+    .divbutton {
+      display: flex;
+      justify-content: center;
+      width: auto;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* cacher le header */
+  .header {
+    display: none;
+  }
+
+  /* flèche en haut gauche */
+  .back-arrow {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-size: 24px;
+  }
+
+  /* logo centré */
+  .mobile-logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    margin-bottom: 20px;
+  }
+
+  .mobile-logo img {
+    height: 60px;
+  }
+
+  /* padding global */
+  .register-container {
+    padding: 0 34px;
+  }
+}

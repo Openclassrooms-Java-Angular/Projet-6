@@ -1,25 +1,31 @@
-<div class="header">
-  <img src="/assets/logo_p6.png" alt="Logo">
-  <div class="extra-content"></div>
+<app-navbar></app-navbar>
+
+<div class="back-arrow" title="Retour"><a routerLink="/">&larr;</a></div>
+
+<div class="register-container">
+  <h1 class="title">Inscription</h1>
+  <form (ngSubmit)="onRegister()" [formGroup]="registerForm">
+    <mat-label class="label">Nom d'utilisateur</mat-label>
+    <mat-form-field class="input">
+      <input matInput formControlName="username" required>
+    </mat-form-field>
+
+    <mat-label class="label">Adresse e-mail</mat-label>
+    <mat-form-field class="input">
+      <input matInput formControlName="email" type="email" required>
+    </mat-form-field>
+
+    <mat-label class="label">Mot de passe</mat-label>
+    <mat-form-field class="input">
+      <input matInput type="password" formControlName="password" required>
+    </mat-form-field>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <div class="divbutton">
+    <button mat-raised-button color="primary" type="submit" class="button2">S'inscrire</button>
+    </div>
+  </form>
 </div>
-
-<div class="back-arrow" title="Retour">&larr;</div>
-
-<form (ngSubmit)="onRegister()" [formGroup]="registerForm">
-  <mat-form-field appearance="fill">
-    <mat-label>Nom d'utilisateur</mat-label>
-    <input matInput formControlName="username" required>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Email</mat-label>
-    <input matInput type="email" formControlName="email" required>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Mot de passe</mat-label>
-    <input matInput type="password" formControlName="password" required>
-  </mat-form-field>
-
-  <button mat-raised-button color="accent" type="submit">S'inscrire</button>
-</form>
