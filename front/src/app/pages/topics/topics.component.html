@@ -1,27 +1,12 @@
+<app-navbar></app-navbar>
+
 <div class="topics-container">
 
   <h2>Thèmes</h2>
 
   <div class="grid">
-    <mat-card class="topic-card" *ngFor="let topic of topics">
+    <app-topic *ngFor="let topic of topics" [topic]="topic"></app-topic>
 
-      <mat-card-title>{{ topic.title }}</mat-card-title>
-
-      <mat-card-content>
-        <p>{{ topic.description }}</p>
-      </mat-card-content>
-
-      <mat-card-actions>
-        <button mat-raised-button
-                color="primary"
-                (click)="toggleSubscription(topic)">
-
-          {{ topic.subscribed ? 'Se désabonner' : "S'abonner" }}
-
-        </button>
-      </mat-card-actions>
-
-    </mat-card>
   </div>
 
 </div>
