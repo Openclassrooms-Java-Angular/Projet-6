@@ -1,0 +1,9 @@
+<div class="topic-card">
+  <h3 class="title">{{ topic.name }}</h3>
+  <div class="content">{{ topic.description }}</div>
+  <mat-card-actions>
+    <button mat-raised-button (click)="toggleSubscription(topic)" class="btn-primary {{ topic.subscribed ? 'subscribed' : '' }}">
+      {{ topic.subscribed ? 'Se désabonner' : "S'abonner" }}
+    </button>
+  </mat-card-actions>
+</div>

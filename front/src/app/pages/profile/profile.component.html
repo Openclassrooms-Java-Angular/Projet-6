@@ -28,28 +28,18 @@
 
   </form>
 
+  <hr>
+
   <!-- Liste des abonnements -->
   <div class="subscriptions">
 
-    <h2>Mes abonnements</h2>
+    <h2>Abonnements</h2>
 
     <div class="topics-grid">
 
-      <mat-card *ngFor="let topic of topics" class="topic-card">
+      <app-topic-profile *ngFor="let topic of topics" [topic]="topic" (unsubscribed)="unsubscribe($event)">
+      </app-topic-profile>
 
-        <mat-card-title>{{ topic.title }}</mat-card-title>
-
-        <mat-card-content>
-          <p>{{ topic.description }}</p>
-        </mat-card-content>
-
-        <mat-card-actions>
-          <button mat-button color="warn" (click)="unsubscribe(topic.id)">
-            Se désabonner
-          </button>
-        </mat-card-actions>
-      </mat-card>
     </div>
   </div>
 </div>
-

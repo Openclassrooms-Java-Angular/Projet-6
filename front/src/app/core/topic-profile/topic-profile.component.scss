@@ -1,0 +1,33 @@
+.topic-card {
+  background-color: #F5F5F5;
+  padding: 12px 20px 14px 20px;
+  border-radius: 8px;
+
+  .title {
+    font-weight: 700;
+    font-style: bold;
+    font-size: 16px;
+    line-height: 100%;
+    margin-bottom: 9px;
+  }
+
+  .content {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    line-height: 100%;
+  }
+
+  mat-card-actions {
+    display: flex;
+    justify-content: center;
+
+    button {
+      width: 152px;
+    }
+
+    button.subscribed {
+      background-color: #939393;
+      color: white;
+    }
+  }
+}

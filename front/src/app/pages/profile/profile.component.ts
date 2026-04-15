@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NavbarComponent } from 'src/app/core/navbar/navbar.component';
+import { TopicProfileComponent } from 'src/app/core/topic-profile/topic-profile.component';
 import { TopicService } from 'src/app/services/topic.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -19,7 +20,8 @@ import { UserService } from 'src/app/services/user.service';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    TopicProfileComponent
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
@@ -33,12 +35,11 @@ export class ProfileComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private topicService: TopicService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.initForm();
     this.loadProfile();
-    //this.loadSubscriptions();
   }
 
   initForm() {
@@ -59,12 +60,6 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  /*loadSubscriptions() {
-    this.userService.getSubscriptions().subscribe(data => {
-      this.topics = data;
-    });
-  }*/
-
   onSubmit() {
     if (this.profileForm.invalid) return;
 
@@ -75,8 +70,6 @@ export class ProfileComponent implements OnInit {
   }
 
   unsubscribe(topicId: number) {
-    this.topicService.unsubscribe(topicId).subscribe(() => {
-      this.topics = this.topics.filter(t => t.id !== topicId);
-    });
+    this.topics = this.topics.filter(t => t.id !== topicId);
   }
 }
