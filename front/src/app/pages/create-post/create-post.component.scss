@@ -1,25 +1,58 @@
-  h1 {
-    margin-bottom: 31px;
-  }
-  
-  .container {
+h1 {
+  margin-bottom: 31px;
+}
+
+.container {
   width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 26px;
+  margin: 26px auto 0 auto;
   display: flex;
   flex-direction: column;
-  /*justify-content: center;*/
   align-items: center;
-  gap: 16px;
 }
 
 mat-form-field {
   display: block;
-  width: 100%;
+  width: 281px;
 }
 
 .full-width {
   width: 100%;
   margin-bottom: 16px;
+}
+
+.divbutton {
+  margin-top: 43px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.button2 {
+  width: 140px;
+}
+
+.custom-textarea .mat-form-field-flex {
+  background-color: white;
+  border: 2px solid #7763C5;
+  border-radius: 8px;
+}
+
+.custom-textarea textarea {
+  background-color: white;
+}
+
+.custom-textarea.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: white !important;
+  border: 2px solid #7763C5;
+  border-radius: 8px;
+}
+
+.custom-textarea .mat-form-field-underline {
+  display: none;
+}
+
+@media (max-width: 300px) {
+  mat-form-field {
+    width: 250px;
+  }
 }
