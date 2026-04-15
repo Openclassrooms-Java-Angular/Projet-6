@@ -4,5 +4,5 @@
     <span class="date">Date : <time [attr.datetime]="post.created_at">{{ post.getFormattedDate() }}</time></span>
     <span class="author">Auteur : {{ post.author }}</span>
   </div>
-  <p class="content">{{ truncateText(post.content) }}</p>
+  <p class="content">{{ post.content }}</p>
 </div>

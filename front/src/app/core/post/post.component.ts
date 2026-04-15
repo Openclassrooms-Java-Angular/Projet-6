@@ -15,12 +15,6 @@ export class PostComponent {
 
   constructor(private router: Router) { }
 
-  truncateText(text: string, maxLines: number = 5): string {
-    // limite à environ 5 lignes (environ 300 caractères, ajustable)
-    const limit = maxLines * 60;
-    return text.length > limit ? text.substring(0, limit) + '…' : text;
-  }
-
   openPost(): void {
     this.router.navigate(['/posts', this.post.id]);
   }
