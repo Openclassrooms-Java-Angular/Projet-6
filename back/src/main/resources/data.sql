@@ -6,16 +6,16 @@ INSERT INTO users (id, email, password, username) VALUES
 (5, 'eve@test.com', '$2a$10$gZ7alRUzqVbrkYDUWFCC5.ImtW7cID4koG9KiCtQuhiIbZTdfSjRO', 'eve');
 
 INSERT INTO topics (id, name, description) VALUES
-(1, 'Sciences', 'Tout sur les sciences'),
-(2, 'Technologie', 'Innovations et high-tech'),
-(3, 'Sport', 'Actualités sportives'),
-(4, 'Cinéma', 'Films et critiques'),
-(5, 'Musique', 'Actualités musicales'),
-(6, 'Voyage', 'Destinations et conseils'),
-(7, 'Cuisine', 'Recettes et gastronomie'),
-(8, 'Histoire', 'Événements historiques'),
-(9, 'Jeux vidéo', 'Gaming et e-sport'),
-(10, 'Santé', 'Bien-être et santé');
+(1, 'Frontend', 'Développement d\'interfaces utilisateur modernes avec HTML CSS JavaScript et frameworks comme Angular ou React'),
+(2, 'Backend', 'Conception d\'API robustes gestion des bases de données et logique serveur avec Java PHP ou Node'),
+(3, 'DevOps', 'Automatisation des déploiements intégration continue et gestion des serveurs et outils comme Docker Kubernetes et CI/CD'),
+(4, 'Base de données', 'Modélisation des données, requêtes SQL et optimisation des performances et gestion avec MySQL PostgreSQL ou MongoDB'),
+(5, 'Sécurité', 'Protection des applications, gestion des authentifications, chiffrement, prévention des attaques et bonnes pratiques de cybersécurité'),
+(6, 'Architecture', 'Conception logicielle, patterns, découplage, microservices et organisation des projets pour applications évolutives et maintenables'),
+(7, 'Tests', 'Tests unitaires fonctionnels automatisés validation du code qualité logicielle et outils comme JUnit Cypress ou Jest'),
+(8, 'Mobile', 'Développement d\'applications mobiles natives ou hybrides avec Android iOS Flutter ou React Native'),
+(9, 'Cloud', 'Utilisation des services cloud, déploiement scalable, stockage et outils AWS Azure ou Google Cloud Platform'),
+(10, 'Outils', 'Environnements de développement, gestion de version avec Git, IDE, extensions, productivité et automatisation des tâches');
 
 INSERT INTO posts (id, content, created_at, title, user_id, topic_id) VALUES
 -- 1 à 10
